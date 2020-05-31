@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutteryoutubeapp/video_detail.dart';
 
 void main() {
   runApp(App());
 }
 
 class App extends StatelessWidget {
-  final items = List<String>.generate(10, (i) => "Item $i");
+  final items = List<String>.generate(20, (i) => "Item $i");
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class App extends StatelessWidget {
                       width: 60,
                       height: 60,
                       child: Image.network(
-                        "https://yt3.ggpht.com/a/AATXAJx2LQwh1kNX09biNyCenCNGzh5Rvwoue-an_Q=s288-c-k-c0xffffffff-no-rj-mo",
+                        "http://www.pref.nara.jp/secure/125341/piisu_thumb.png",
                       ),
                     ),
                     const SizedBox(
@@ -85,10 +86,40 @@ class App extends StatelessWidget {
                   itemCount: items.length,
                   itemBuilder: (context, index) {
                     return ListTile(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => VideoDetailPage()),
+                        );
+                      },
+                      contentPadding: EdgeInsets.all(8.0),
                       leading: Image.network(
-                        "https://yt3.ggpht.com/a/AATXAJx2LQwh1kNX09biNyCenCNGzh5Rvwoue-an_Q=s288-c-k-c0xffffffff-no-rj-mo",
+                        "https://i.ytimg.com/vi/s-GLWp_Ojc8/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA68Zi4FofCwDFtbu09fK-j-4fGRg",
                       ),
-                      title: Text('テストYoutubeApp'),
+                      title: Column(
+                        children: <Widget>[
+                          Text(
+                            'テストYoutubeApp',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                '200回再生',
+                                style: TextStyle(fontSize: 11),
+                              ),
+                              Text(
+                                '4日前',
+                                style: TextStyle(fontSize: 11),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      trailing: Icon(Icons.more_vert),
                     );
                   },
                 ),
