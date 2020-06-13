@@ -15,11 +15,30 @@ class App extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: false,
-          leading: Icon(Icons.videocam),
+          leading: Image.network(
+              "https://lab.topica-works.com/wp-content/uploads/2018/02/youtube_social_squircle_white.png"),
           title: const Text(
-            "テスト",
+            "YouTube",
           ),
           actions: <Widget>[
+            SizedBox(
+              width: 44,
+              child: FlatButton(
+                child: Icon(Icons.cast),
+                onPressed: () {
+                  // TODO
+                },
+              ),
+            ),
+            SizedBox(
+              width: 44,
+              child: FlatButton(
+                child: Icon(Icons.videocam),
+                onPressed: () {
+                  // TODO
+                },
+              ),
+            ),
             SizedBox(
               width: 44,
               child: FlatButton(
@@ -95,7 +114,7 @@ class App extends StatelessWidget {
                       },
                       contentPadding: EdgeInsets.all(8.0),
                       leading: Image.network(
-                        "https://i.ytimg.com/vi/s-GLWp_Ojc8/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA68Zi4FofCwDFtbu09fK-j-4fGRg",
+                        "https://i.ytimg.com/vi/PUc1lrZxDyo/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&amp;rs=AOn4CLDchV435fJlEW1AedN_Q64-wwcQ6g",
                       ),
                       title: Column(
                         children: <Widget>[
@@ -126,6 +145,23 @@ class App extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('ホーム'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: Text('探索'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.desktop_mac),
+              title: Text('ライブラリ'),
+            ),
+          ],
+          selectedItemColor: Colors.red,
         ),
       ),
     );
